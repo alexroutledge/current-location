@@ -6,7 +6,7 @@ TODO: Web Component wrapper for geolocation based data using Polymer.
 
 ## Demo
 
-> [Check it live](http://customelements.github.io/boilerplate-element).
+> [Check it live](http://dl.dropboxusercontent.com/u/8767938/fresca/html5/geolocation-element/index.html).
 
 ## Usage
 
