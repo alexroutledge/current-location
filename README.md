@@ -1,6 +1,6 @@
 # &lt;geolocation&gt;
 
-TODO: Web Component wrapper for geolocation based data using Polymer.
+Web Component wrapper for geolocation based data using Polymer.
 
 > Maintained by [Alex Routledge](https://github.com/alexroutledge).
 
