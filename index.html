@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>&lt;geolocation&gt;</title>
+
+	<!-- Importing Web Component's Polyfill -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.0.20130816/polymer.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<!-- Importing Custom Elements -->
+	<link rel="import" href="src/geolocation.html">
+	<link rel="import" href="src/geolocation-wrapper.html">
+	<link rel="import" href="src/google-maps.html">
+	<style>
+        google-maps {
+                height: 400px;
+                width: 400px;
+        }
+        </style>
+</head>
+<body>
+
+	<!-- Using Custom Elements -->
+	<geolocation-wrapper>
+	  <p>This is a map of your current location</p>
+    </geolocation-wrapper>
+</body>
+</html>

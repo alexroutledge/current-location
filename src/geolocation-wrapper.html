@@ -1,0 +1,14 @@
+<polymer-element name="geolocation-wrapper" extends="geolocation">
+ <template>
+   <geolocation position="{{position}}"></geolocation>
+   <template if="{{position}}">
+   	 <content></content>
+     <google-maps zoom="12" type="hybrid" latitude="{{position.coords.latitude}}" longitude="{{position.coords.longitude}}"></google-maps>
+   </template>
+ </template>
+ <script>
+   Polymer('geolocation-wrapper', {
+     applyAuthorStyles: true
+   });
+ </script>
+</polymer-element>

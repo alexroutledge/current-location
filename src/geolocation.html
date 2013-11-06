@@ -1,0 +1,16 @@
+<polymer-element name="geolocation" attributes="position">
+  <template>
+    <content></content>
+  </template>
+  <script>
+  Polymer('geolocation', {
+   applyAuthorStyles: true,
+   ready: function() {
+    var _this = this;
+    navigator.geolocation.getCurrentPosition(function(data) {
+     _this.position = data;
+	  });
+   }
+  });
+  </script>
+</polymer-element>
