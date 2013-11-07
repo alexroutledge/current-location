@@ -1,4 +1,4 @@
-# &lt;geolocation&gt;
+# &lt;current-location&gt;
 
 Web Component wrapper for geolocation based data using Polymer.
 
@@ -19,15 +19,17 @@ Web Component wrapper for geolocation based data using Polymer.
 2. Import Custom Element:
 
 	```html
-	<link rel="import" href="src/geolocation.html">
+	<link rel="import" href="src/current-location.html">
+	<link rel="import" href="src/geolocation-wrapper.html">
+	<link rel="import" href="src/google-maps.html">
 	```
 
 3. Start using it!
 
 	```html
-	<polymer-element name="geolocation-wrapper" extends="geolocation">
+	<polymer-element name="geolocation-wrapper" extends="current-location">
 	 <template>
-	   <geolocation position="{{position}}"></geolocation>
+	   <current-location position="{{position}}"></current-location>
 	   <template if="{{position}}">
 	   	 <content></content>
 	     <google-maps zoom="12" type="hybrid" latitude="{{position.coords.latitude}}" longitude="{{position.coords.longitude}}"></google-maps>

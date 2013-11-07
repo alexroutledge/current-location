@@ -1,6 +1,6 @@
-<polymer-element name="geolocation-wrapper" extends="geolocation">
+<polymer-element name="geolocation-wrapper" extends="current-location">
  <template>
-   <geolocation position="{{position}}"></geolocation>
+   <current-location position="{{position}}"></current-location>
    <template if="{{position}}">
    	 <content></content>
      <google-maps zoom="12" type="hybrid" latitude="{{position.coords.latitude}}" longitude="{{position.coords.longitude}}"></google-maps>
