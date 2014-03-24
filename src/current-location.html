@@ -6,10 +6,9 @@
   Polymer('current-location', {
    applyAuthorStyles: true,
    ready: function() {
-    var _this = this;
     navigator.geolocation.getCurrentPosition(function(data) {
-     _this.position = data;
-	  });
+     this.position = data;
+    }.bind(this));
    }
   });
   </script>
