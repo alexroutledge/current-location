@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  document.registerElement('service-worker', {
+    prototype: Object.create(
+      HTMLLinkElement.prototype, {
+        createdCallback: {
+          value: function() {
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register(this.getAttribute('href'), {
+                scope: this.getAttribute('scope')
+              });
+            }
+          }
+        }
+    }),
+    extends: 'link'
+  });
+  </script>
+  <link is="service-worker" rel="serviceworker" href="sw.js" scope="./"/>
+</head>
+<body>
+  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="test2.css" />
+  <p>Turn off network and reload to see this page served from a service worker</p>
+</body>
+</html>
