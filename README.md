@@ -1,41 +1,49 @@
-# &lt;link rel="service-worker" href scope/&gt;
+# &lt;current-location&gt;
 
-Web Component wrapper for service worker's proposed declarative syntax.
+Web Component wrapper for geolocation based data using Polymer.
 
 > Maintained by [Alex Routledge](https://github.com/alexroutledge).
 
 ## Demo
 
-> [Check it live](https://alexroutledge.github.io/serviceworker/index.html).
+> [Check it live](http://dl.dropboxusercontent.com/u/8767938/fresca/html5/geolocation-element/index.html).
 
 ## Usage
 
-1. Import declarative syntax polyfill. Note, it's vital that the script is inlined before the service worker resource link tag - this ensures the script executes before the preload scanner sees the link tag.
+1. Import Web Components' polyfill:
 
 	```html
-	<script>
-	document.registerElement('service-worker', {
-    	  prototype: Object.create(
-      	    HTMLLinkElement.prototype, {
-              createdCallback: {
-                value: function() {
-                  if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.register(this.getAttribute('href'), {
-                      scope: this.getAttribute('scope')
-                  });
-                }
-              }
-            }
-         }),
-         extends: 'link'
-  	});
-        </script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.0.20130711/polymer.min.js"></script>
 	```
 
-2. Start using it!
+2. Import Custom Element:
 
 	```html
-	<link is="service-worker" rel="serviceworker" href="sw.js" scope="./"/>
+	<link rel="import" href="src/current-location.html">
+	<link rel="import" href="src/geolocation-wrapper.html">
+	<link rel="import" href="src/google-maps.html">
+	```
+
+3. Start using it!
+
+	```html
+	<polymer-element name="geolocation-wrapper" extends="current-location">
+	 <template>
+	   <current-location position="{{position}}"></current-location>
+	   <template if="{{position}}">
+	   	 <content></content>
+	     <google-maps zoom="12" type="hybrid" latitude="{{position.coords.latitude}}" longitude="{{position.coords.longitude}}"></google-maps>
+	   </template>
+	 </template>
+	 <script>
+	   Polymer('geolocation-wrapper', {
+	     applyAuthorStyles: true
+	   });
+	 </script>
+	</polymer-element>
+	<geolocation-wrapper>
+	  <p>This is a map of your current location</p>
+    </geolocation-wrapper>
 	```
 
 ## Contributing
@@ -48,7 +56,7 @@ Web Component wrapper for service worker's proposed declarative syntax.
 
 ## History
 
-* v0.0.1 February 17, 2016
+* v0.0.1 August 19, 2013
 	* Started project using [boilerplate-element](https://github.com/customelements/boilerplate-element)
 
 ## License
